@@ -1,0 +1,36 @@
+{
+  "name": "tickr-js",
+  "version": "0.1.0",
+  "description": "JavaScript client for Tickr.cc",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "ts-node -r dotenv/config test.ts"
+  },
+  "keywords": [
+    "tickr",
+    "client",
+    "api"
+  ],
+  "author": "DavidMChan <david@iridescent.io>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavidMChan/tickr-js.git"
+  },
+  "homepage": "https://tickr.cc",
+  "bugs": {
+    "url": "https://github.com/DavidMChan/tickr-js/issues"
+  },
+  "files": [
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "dotenv": "^17.2.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  }
+}
