@@ -27,6 +27,7 @@ fi
 # Setup temp project
 cd $TEMP_DIR
 npm init -y
+npm pkg set type="module"
 
 echo "📥 Installing $PACKAGE_SOURCE..."
 npm install $PACKAGE_SOURCE
@@ -38,7 +39,7 @@ cp $ROOT_DIR/test.ts ./test.ts
 
 # Replace local import with package import
 # 'import { TickrClient } from './src';' -> 'import { TickrClient } from 'tickr-js';'
-sed -i '' "s|from './src'|from 'tickr-js'|g" test.ts
+sed -i '' "s|from './src/index.ts'|from 'tickr-js'|g" test.ts
 
 # Set environment variables if not present (pass through from parent shell)
 # User should have TICKR_API_KEY set in their environment or .env file in root

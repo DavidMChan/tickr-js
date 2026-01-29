@@ -1,4 +1,4 @@
-import { TickrClient } from './src';
+import { TickrClient } from './src/index.ts';
 
 async function run() {
     const apiKey = process.env.TICKR_API_KEY;
