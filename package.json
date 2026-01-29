@@ -1,12 +1,13 @@
 {
   "name": "tickr-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "JavaScript client for Tickr.cc",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "ts-node -r dotenv/config test.ts"
+    "test": "ts-node -r dotenv/config test.ts",
+    "test:e2e": "bash scripts/e2e-test.sh"
   },
   "keywords": [
     "tickr",
@@ -25,7 +26,8 @@
   },
   "files": [
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "dist"
   ],
   "devDependencies": {
     "@types/node": "^20.0.0",
