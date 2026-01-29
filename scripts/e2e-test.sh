@@ -4,18 +4,32 @@ set -e
 # Define directories
 ROOT_DIR=$(pwd)
 TEMP_DIR=$(mktemp -d)
-PACK_NAME=$(npm pack)
 
-echo "📦 Package created: $PACK_NAME"
+# Parse arguments
+FROM_NPM=false
+if [[ "$1" == "--from-npm" ]]; then
+  FROM_NPM=true
+fi
+
 echo "🛠️  Setting up temporary test environment at $TEMP_DIR"
 
-# Move pack to temp dir
-mv $PACK_NAME $TEMP_DIR/
+if [ "$FROM_NPM" = true ]; then
+  echo "🌍 Installing from NPM (tickr-js)..."
+  PACKAGE_SOURCE="tickr-js"
+else
+  echo "📦 Packing local source..."
+  PACK_NAME=$(npm pack)
+  echo "📦 Package created: $PACK_NAME"
+  mv $PACK_NAME $TEMP_DIR/
+  PACKAGE_SOURCE="./$PACK_NAME"
+fi
 
 # Setup temp project
 cd $TEMP_DIR
 npm init -y
-npm install ./$PACK_NAME
+
+echo "📥 Installing $PACKAGE_SOURCE..."
+npm install $PACKAGE_SOURCE
 npm install ts-node typescript dotenv @types/node
 
 # Copy test file and adjust import
