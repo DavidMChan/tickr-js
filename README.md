@@ -49,7 +49,7 @@ import { TickrClient } from 'tickr-js';
 // Create a client instance (API key is recommended for authenticated endpoints)
 // You can get your API key from the Tickr API docs page: https://tickr.cc/api-docs
 // Note: Pass the base URL first (default: https://tickr.cc), then the API Key.
-const client = new TickrClient("https://tickr.cc", "YOUR_API_KEY");
+const client = new TickrClient("YOUR_API_KEY");
 
 // For public-only access, you can instantiate without arguments:
 // const publicClient = new TickrClient();
